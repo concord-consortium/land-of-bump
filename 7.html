@@ -45,7 +45,7 @@
       <div id="model-container">
         <div id="iframe-container-outer">
           <div id="iframe-container-inner">
-            <iframe id="interactive-iframe" width="100%"height="100%" src="https://lab.concord.org/embeddable.html#interactives/sensing-science/land-of-bump/model1.json"></iframe>
+            <iframe id="interactive-iframe" width="100%"height="100%" src="lab/embeddable.html"></iframe>
           </div>
         </div>
         <div id="bump-stage-overlay"></div>
@@ -61,14 +61,14 @@
       <div id="text">
         <p>It's time for the Red Hots to go on the dance floor and practice their routine. What do you think is happening?</p>
       </div>
-      <a href="7.html#" id="audio" title="Play audio"
-       >play
-        audio</a>
+      <a href="7.html#" id="audio" title="Play audio">play audio</a>
       <div id="record-controls">
         <a href="7.html#" id="record" title="Record audio"
-          onclick="return false;">record audio</a> <a href="7.html#" id="stop"
+          onclick="return false;">record audio</a>
+        <a href="7.html#" id="stop"
           title="Stop recording audio" onclick="return false;">stop
-          recording audio</a> <a href="7.html#" id="play"
+          recording audio</a>
+        <a href="7.html#" id="play"
           title="Play recorded audio" onclick="return false;">play
           recorded audio</a>
       </div>
@@ -96,6 +96,9 @@
   var interactive = new iframePhone.ParentEndpoint($('#interactive-iframe')[0]);
 
   $(function(){
+    $.get('/interactives/model1.json', (json) => {
+      interactive.post('loadInteractive', json);
+    });
     interactive.addListener('modelLoaded', function() {
       interactive.post('observe', 'temperature-red');
     });

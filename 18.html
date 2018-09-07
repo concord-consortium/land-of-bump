@@ -44,7 +44,7 @@
     <div id="model-container">
       <div id="iframe-container-outer">
         <div id="iframe-container-inner">
-          <iframe id="interactive-iframe" width="100%"height="100%" src="https://lab.concord.org/embeddable.html#interactives/sensing-science/land-of-bump/model5.json"></iframe>
+          <iframe id="interactive-iframe" width="100%"height="100%" src="lab/embeddable.html"></iframe>
         </div>
       </div>
       <div id="bump-stage-overlay"></div>
@@ -89,6 +89,9 @@
     var interactive = new iframePhone.ParentEndpoint($('#interactive-iframe')[0]);
 
     $(function(){
+      $.get('/interactives/model5.json', (json) => {
+        interactive.post('loadInteractive', json);
+      });
       interactive.addListener('modelLoaded', function() {
         interactive.post('observe', 'temperature-blue');
         interactive.post('observe', 'temperature-red');
