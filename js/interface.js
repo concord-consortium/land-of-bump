@@ -94,9 +94,12 @@ function playAudio() {
     document.getElementById('start-over').style.display = 'block';
   }
   if ((audio_letter == 'a' || audio_letter == '') && document.getElementById('video1')) {
-    document.getElementById('video1').play();
+    var video = document.getElementById('video1');
+    video.setAttribute('webkit-playsinline', 'webkit-playsinline'); // Fix fullscreen problem on IOS 8 and 9
+    video.setAttribute('playsinline', 'playsinline'); // Fix fullscreen problem on IOS 10
+    video.play();
     if (audio_number != 18 && audio_number != 6) {
-      document.getElementById('video1').onended = function() {
+      video.onended = function() {
         showModel();
       }
     }
