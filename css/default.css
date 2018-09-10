@@ -170,7 +170,7 @@ body.blues-only #bump-stage-overlay {
 #controls {
   background: #f7f2ec;
   color: #506c94;
-  height: auto;
+  height: 40vh;
   padding-top: 1em;
   min-height: 7.188rem;
   position: relative;
@@ -323,6 +323,9 @@ body.blues-only #bump-stage-overlay {
 .home #page-container {
   padding-bottom: 4em;
   width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1em;
   }
   .home #page-container img.banner {
     height: auto;
@@ -368,7 +371,7 @@ body.blues-only #bump-stage-overlay {
   /*iPad portrait orientation styles */
   #page-container { margin: 0; min-height: 38.3rem; width: 100%; }
   #stage { height: 29.45rem; margin: 0; width: 100%; }
-  #controls { min-height: 5.635392rem; width: 100%; }
+  #controls { width: 100%; }
   video { height: 29.45rem; width: 100%; }
 #iframe-container-outer {
   height: 29.45rem;
@@ -399,7 +402,7 @@ body.blues-only #bump-stage-overlay {
     left: 2.25rem;
     }
   #blue-speedometer {
-    right: 2.275rem;
+    right: 3.35rem;
     }
   .speedometer-bump {
     bottom: 4px;
@@ -420,9 +423,9 @@ body.blues-only #bump-stage-overlay {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   /*iPad landscape orientation styles */
-  #page-container { margin: 0; min-height: 40.84rem; width: 62rem; }
+  #page-container { margin: 0; min-height: 40.84rem; width: 100%; }
   #stage { height: 29.76rem; }
-  #controls { min-height: 5.7043968rem; }
+
 #iframe-container-outer {
   height: 29.76rem;
   margin: 0 0 0 24.25rem;
@@ -449,10 +452,10 @@ body.blues-only #bump-stage-overlay {
     z-index: 100;
     }
   #red-speedometer {
-    left: 2.25rem;
+    left: 3.35rem;
     }
   #blue-speedometer {
-    right: 2.385rem;
+    right: 3.35rem;
     }
   .speedometer-bump {
     bottom: 4px;
