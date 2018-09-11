@@ -96,7 +96,11 @@
   });
 
   function interactiveListeners() {
-    var red_rotation;
+    $.get('/interactives/model1.json', (json) => {
+      interactive.post('loadInteractive', json);
+      interactive.post('play')
+
+      var red_rotation;
       interactive.addListener('propertyValue', function(result) {
         if (result.name == 'temperature-red') {
           // do something with temp value (result.value)
@@ -104,7 +108,7 @@
           $('#red-speedometer-arrow').css({'transform': 'rotate(' + red_rotation + 'deg)', 'transform-origin': 'right center'});
         }
       });
-
+    });
   }
 
   </script>

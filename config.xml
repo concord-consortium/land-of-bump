@@ -20,5 +20,6 @@
   <platform name="ios" />
   <platform name="android" />
   <preference name="AllowInlineMediaPlayback" value="true" />
-
+  <content src="index.html" />
+  <access origin="*" />
 </widget>
