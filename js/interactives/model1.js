@@ -38,7 +38,7 @@ var interactiveJson = {
         "additionalSolventForceThreshold": 10,
         "polarAAEpsilon": -2,
         "viscosity": 1,
-        "timeStepsPerTick": 25,
+        "timeStepsPerTick": 50,
         "DNAState": "dna",
         "DNA": "",
         "DNAMutations": true,
