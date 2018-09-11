@@ -22,6 +22,7 @@
 <link rel="manifest" href="manifest.json" />
 <link rel="stylesheet" href="css/default.css" />
 
+
 </head>
 <body class="reds-only">
 <noscript><p class="warning">This page requires JavaScript to function properly. Please enable JavaScript in your browser.</p></noscript>
@@ -87,7 +88,7 @@
   var interactive = new iframePhone.ParentEndpoint($('#interactive-iframe')[0]);
 
   $(function(){
-    $.get('/interactives/model1.json', (json) => {
+    $.get('model1.json', (json) => {
       interactive.post('loadInteractive', json);
     });
     interactive.addListener('modelLoaded', function() {
@@ -96,11 +97,7 @@
   });
 
   function interactiveListeners() {
-    $.get('/interactives/model1.json', (json) => {
-      interactive.post('loadInteractive', json);
-      interactive.post('play')
-
-      var red_rotation;
+    var red_rotation;
       interactive.addListener('propertyValue', function(result) {
         if (result.name == 'temperature-red') {
           // do something with temp value (result.value)
@@ -108,7 +105,7 @@
           $('#red-speedometer-arrow').css({'transform': 'rotate(' + red_rotation + 'deg)', 'transform-origin': 'right center'});
         }
       });
-    });
+
   }
 
   </script>
