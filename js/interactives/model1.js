@@ -21,7 +21,7 @@ var interactiveJson = {
       "id": "empty-atom",
       "model": {
         "type": "md2d",
-        "imagePath": "",
+        "imagePath": "/resources/",
         "width": 10.24,
         "height": 10.24,
         "unitsScheme": "md2d",

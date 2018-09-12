@@ -94,6 +94,7 @@
     //   interactive.post('loadInteractive', json);
     // });
     interactive.addListener('modelLoaded', function() {
+      interactiveListeners();
       interactive.post('observe', 'temperature-red');
     });
   });

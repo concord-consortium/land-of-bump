@@ -118,8 +118,13 @@ function showModel() {
   if (document.getElementById('model-container')) {
     document.getElementById('model-container').style.display = 'block';
     //document.getElementById('model-container').style.visibility = 'visible';
+    interactive.addListener('log', function (result) {
+      if (result.action !== "StartedModel") {
+        console.log(result);
+      }
+    });
     interactive.post('play');
-    interactiveListeners();
+
   }
 }
 

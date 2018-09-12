@@ -80,10 +80,8 @@
 
     $(function(){
       interactive.post('loadInteractive', interactiveJson);
-      // $.get('/interactives/model2.json', (json) => {
-      //   interactive.post('loadInteractive', json);
-      // });
       interactive.addListener('modelLoaded', function() {
+        interactiveListeners();
         interactive.post('observe', 'temperature-blue');
       });
     });
