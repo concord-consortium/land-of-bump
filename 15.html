@@ -76,15 +76,14 @@
   <script src="js/vendor/jquery.min.js"></script>
   <script src="js/vendor/iframe-phone.js"></script>
   <script src="js/interface.js"></script>
-  <script src="js/interactives/model4.js"></script>
   <script>
     var interactive = new iframePhone.ParentEndpoint($('#interactive-iframe')[0]);
 
     $(function(){
-      interactive.post('loadInteractive', interactiveJson);
-      // $.get('/interactives/model4.json', (json) => {
-      //   interactive.post('loadInteractive', json);
-      // });
+      $.get('interactives/model4.json', (json) => {
+        if (typeof json === "string") json = JSON.parse(json);
+        interactive.post('loadInteractive', json);
+      });
       interactive.addListener('modelLoaded', function() {
         interactiveListeners();
         interactive.post('observe', 'temperature-blue');
