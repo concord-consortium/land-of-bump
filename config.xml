@@ -22,7 +22,7 @@
     <splash src="splash.png" />
   </platform>
   <platform name="android">
-    <icon src="android-icon.png" />
+    <icon src="android-icon-192x192.png" />
     <splash src="splash.png" />
   </platform>
   <preference name="AllowInlineMediaPlayback" value="true" />
