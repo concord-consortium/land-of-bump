@@ -18,7 +18,27 @@
   </author>
 
   <platform name="ios">
-    <icon src="apple-icon-180x180.png" />
+    <!-- iPhone 6 / 6+ -->
+    <icon src="apple-icon-180x180.png" platform="ios" width="180" height="180" />
+
+    <!-- iPhone / iPod Touch  -->
+    <icon src="apple-icon-60x60.png" platform="ios" width="60" height="60" />
+    <icon src="apple-icon-120x120.png" platform="ios" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="apple-icon-76x76.png" platform="ios" width="76" height="76" />
+    <icon src="apple-icon-152x152.png" platform="ios" width="152" height="152" />
+    <icon src="apple-icon-167x167.png" platform="ios" width="167" height="167" />
+
+    <!-- Settings Icon -->
+    <icon src="apple-icon-29x29.png" platform="ios" width="29" height="29" />
+    <icon src="apple-icon-58x58.png" platform="ios" width="58" height="58" />
+    <icon src="apple-icon-87x87.png" platform="ios" width="87" height="87" />
+
+    <!-- Spotlight Icon -->
+    <icon src="apple-icon-40x40.png" platform="ios" width="40" height="40" />
+    <icon src="apple-icon-80x80.png" platform="ios" width="80" height="80" />
+    <icon src="apple-icon-120x120.png" platform="ios" width="120" height="120" />
     <splash src="splash.png" />
   </platform>
   <platform name="android">
