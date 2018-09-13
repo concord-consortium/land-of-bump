@@ -17,8 +17,14 @@
       The Concord Consortium
   </author>
 
-  <platform name="ios" />
-  <platform name="android" />
+  <platform name="ios">
+    <icon src="apple-icon-180x180.png" />
+    <splash src="splash.png" />
+  </platform>
+  <platform name="android">
+    <icon src="android-icon.png" />
+    <splash src="splash.png" />
+  </platform>
   <preference name="AllowInlineMediaPlayback" value="true" />
   <content src="index.html" />
   <access origin="*" />
