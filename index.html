@@ -6,6 +6,7 @@
 <meta name="msapplication-TileColor" content="#ffffff" />
 <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
 <meta name="theme-color" content="#ffffff" />
+<meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png" />
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png" />
@@ -21,9 +22,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
 <link rel="manifest" href="manifest.json" />
 <link rel="stylesheet" href="css/default.css" />
+<script src="js/vendor/jquery.min.js"></script>
 </head>
 <body class="home">
-<noscript><p class="warning">This page requires JavaScript to function properly. Please enable JavaScript in your browser.</p></noscript>
 <div id="page-container">
   <a href="1.html"><img class="banner" src="img/story/1.jpg" alt="Flying Zippies" /></a>
   <ul>
@@ -36,6 +37,12 @@
     <li><a href="19.html"><img src="img/thumbs/7.jpg" />Wrap Up</a></li>
   </ul>
 </div><!-- /#page-container -->
+<img id="splash" src="splash-screen.jpg" />
 <script src="js/interface.js"></script>
 </body>
+<script>
+setTimeout(function() {
+  $("#splash").fadeOut(500);
+}, 1000);
+</script>
 </html>

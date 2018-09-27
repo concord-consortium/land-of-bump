@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "org.concord.lob"
     versionCode = "1"
-    version     = "0.0.7" >
+    version     = "1.0.0" >
 
 <!-- versionCode is optional and Android only -->
 
@@ -16,6 +16,9 @@
   <author href="https://concord.org" email="chart@concord.org">
       The Concord Consortium
   </author>
+
+  <plugin name="cordova-plugin-statusbar" />
+  <preference name="StatusBarOverlaysWebView" value="true" />
 
   <platform name="ios">
     <!-- App Store Icon -->
