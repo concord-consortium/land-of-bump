@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "org.concord.lob"
     versionCode = "1"
-    version     = "1.0.0" >
+    version     = "1.0.1" >
 
 <!-- versionCode is optional and Android only -->
 
@@ -19,6 +19,8 @@
 
   <plugin name="cordova-plugin-statusbar" />
   <preference name="StatusBarOverlaysWebView" value="true" />
+  <preference name="orientation" value="landscape" />
+
 
   <platform name="ios">
     <!-- App Store Icon -->
