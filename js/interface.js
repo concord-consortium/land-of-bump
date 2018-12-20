@@ -85,31 +85,34 @@ function speedometerFlasher(action) {
 
 // starts audio player
 function playAudio() {
-  var audio_file = document.getElementById('audio1').src.split(/(\\|\/)/g).pop();
-  audio_letter = audio_file.replace(/\.mp3$/g, '');
-  audio_number = audio_letter.replace(/[a-z]$/g, '');
-  audio_letter = audio_letter.replace(/^\d+/g, '');
-  document.getElementById('audio1').play();
-  if (document.getElementById('start-over')) {
-    document.getElementById('start-over').style.display = 'block';
-  }
-  if ((audio_letter == 'a' || audio_letter == '') && document.getElementById('video1')) {
-    var video = document.getElementById('video1');
-    video.setAttribute('webkit-playsinline', 'webkit-playsinline'); // Fix fullscreen problem on IOS 8 and 9
-    video.setAttribute('playsinline', 'playsinline'); // Fix fullscreen problem on IOS 10
-    video.play();
-    if (audio_number != 18 && audio_number != 6) {
-      video.onended = function() {
+  var audio_element = document.getElementById('audio1');
+  if (audio_element.paused) {
+    var audio_file = audio_element.src.split(/(\\|\/)/g).pop();
+    audio_letter = audio_file.replace(/\.mp3$/g, '');
+    audio_number = audio_letter.replace(/[a-z]$/g, '');
+    audio_letter = audio_letter.replace(/^\d+/g, '');
+    audio_element.play();
+    if (document.getElementById('start-over')) {
+      document.getElementById('start-over').style.display = 'block';
+    }
+    if ((audio_letter == 'a' || audio_letter == '') && document.getElementById('video1')) {
+      var video = document.getElementById('video1');
+      video.setAttribute('webkit-playsinline', 'webkit-playsinline'); // Fix fullscreen problem on IOS 8 and 9
+      video.setAttribute('playsinline', 'playsinline'); // Fix fullscreen problem on IOS 10
+      video.play();
+      if (audio_number != 18 && audio_number != 6) {
+        video.onended = function () {
+          showModel();
+        }
+      }
+    }
+    if (audio_letter == 'b') {
+      if (audio_number == 18 && document.getElementById('model-container')) {
         showModel();
       }
     }
+    audioIconFlasher('stop');
   }
-  if (audio_letter == 'b') {
-    if (audio_number == 18 && document.getElementById('model-container')) {
-      showModel();
-    }
-  }
-  audioIconFlasher('stop');
   return false;
 }
 
