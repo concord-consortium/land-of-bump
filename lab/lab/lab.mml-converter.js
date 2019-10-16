@@ -411,19 +411,19 @@ define("../../vendor/almond/almond", function(){});
 define('lab.version',['require'],function (require) {
   return {
     "repo": {
-      "branch": "master",
+      "branch": "1.16.5",
       "commit": {
-        "sha":           "346e02e72a9c84cbdd64c04a928d72a895a63250",
-        "short_sha":     "346e02e7",
-        "url":           "https://github.com/concord-consortium/lab/commit/346e02e7",
-        "author":        "Piotr Janik",
-        "email":         "janikpiotrek@gmail.com",
-        "date":          "2016-08-30 16:42:07 -0400",
-        "short_message": "Merge pull request #116 from lepulent/patch-1",
-        "message":       "Merge pull request #116 from lepulent/patch-1\n\nsrc/locales/es/interactives/oil-and-water.json"
+        "sha":           "0acfeb7fd799b7e3f0bae4ff4338f6cea8630c92",
+        "short_sha":     "0acfeb7f",
+        "url":           "https://github.com/concord-consortium/lab/commit/0acfeb7f",
+        "author":        "Chris Hart",
+        "email":         "chart@concord.org",
+        "date":          "2019-10-10 18:54:28 +0000",
+        "short_message": "wsBcBAABCAAQBQJdn35kCRBK7hj4Ov3rIwAAdHIIACj/aWXigTqSV8f29EizVPUt",
+        "message":       " wsBcBAABCAAQBQJdn35kCRBK7hj4Ov3rIwAAdHIIACj/aWXigTqSV8f29EizVPUt\n wsq+tJl5pEC0E2kGNMIGYc7gRUxDfsY+BKjkpVOhbM0RWR+kMb586zDcwUkZUR9b\n DewnU/WCPpElPPUDVOJRD9C7oNm2Z0GpWxRnoNrRRJH+mME2KIT20idiQrpb1UNd\n 8xjo8Jt1wOrv0oEcvRQEkDdCaqps7z07qVMdlmLpwEx4b3fimPgEz7Y/3w8FE7Ck\n sW4FmDkBwjxR6z5s+/jziTzOPmVyTsvGgK/bIyXMgR4I+s4xyMBSaHGA7ehxbnH/\n cjketvqZhtoO7KEcxNhDdpUCDxtMQSO78rJyjSKb6Ygd5ymmbsOOgR4xFNY25EE=\n =Jgiw\n -----END PGP SIGNATURE-----\n \n\nMerge pull request #143 from concord-consortium/simple-fix-iOS13\n\nAdjust svg rendering of atoms"
       },
-      "last_tag":        "1.13.0",
-      "dirty": true
+      "last_tag":        "1.16.5",
+      "dirty": false
     }
   };
 });
@@ -14564,7 +14564,7 @@ define('models/md2d/models/engine/constants/index',['require','exports','module'
 // using RequireJS. R.JS Optimizer will strip out this if statement.
 
 
-define('arrays/index',['require','exports','module'],function (require, exports, module) {
+define('arrays',['require','exports','module'],function (require, exports, module) {
   var arrays = {};
 
   arrays.version = '0.0.1';
@@ -14870,8 +14870,6 @@ define('arrays/index',['require','exports','module'],function (require, exports,
   }
 });
 
-define('arrays', ['arrays/index'], function (main) { return main; });
-
 /*global define: false, $: false */
 
 // For now, only defaultValue, readOnly and immutable
@@ -15041,6 +15039,11 @@ define('models/md2d/models/metadata',[],function() {
         serialize: false
       },
       imagePath: {
+        defaultValue: "",
+        immutable: true
+      },
+      dnaEngineImagesPath: {
+        // this path is relative to labConfig.modelsRootUrl
         defaultValue: "",
         immutable: true
       },
@@ -15239,6 +15242,11 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: false,
         storeInTickHistory: true
       },
+      chargeShadingStyle: {
+        // "biology" (+ blue, - red) or "chemistry" (+ red, - blue).
+        defaultValue: "biology",
+        storeInTickHistory: true
+      },
       aminoAcidColorScheme: {
         defaultValue: "hydrophobicity"
       },
@@ -15402,6 +15410,7 @@ define('models/md2d/models/metadata',[],function() {
         defaultValue: 0
       },
       visible: {
+        // Note that it also accepts fractional values, e.g. 0.5 (=> atom will be semi-transparent).
         defaultValue: 1
       },
       pinned: {
