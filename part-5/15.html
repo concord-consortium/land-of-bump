@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Land of Bump</title>
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-TileImage" content="../ms-icon-144x144.png" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="../apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="../apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="../apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="../apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="../apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="../apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-icon-180x180.png" />
+<link rel="icon" type="image/png" sizes="192x192"  href="../android-icon-192x192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+<link rel="manifest" href="../manifest.json" />
+<link rel="stylesheet" href="../css/default.css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6899787-52', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<noscript><p class="warning">This page requires JavaScript to function properly. Please enable JavaScript in your browser.</p></noscript>
+  <div id="page-container">
+  <div id="stage">
+      <video id="video1" poster="../img/story/15.jpg">
+        <source src="../video/activity/15.mp4" type="video/mp4"></source>
+        <source src="../video/activity/15.webm" type="video/webm"></source>
+        <source src="../video/activity/15.ogv" type="video/ogv" />
+      </video>
+    <div id="model-container">
+      <div id="iframe-container-outer">
+        <div id="iframe-container-inner">
+          <iframe id="interactive-iframe" width="100%"height="100%" src="https://lab.concord.org/embeddable.html#interactives/sensing-science/land-of-bump/model4.json"></iframe>
+        </div>
+      </div>
+      <div id="bump-stage-overlay"></div>
+    </div><!-- end #model-container -->
+    <div class="speedometer" id="red-speedometer">
+      <div class="speedometer-arrow" id="red-speedometer-arrow"></div>
+      <div class="speedometer-bump" id="red-speedometer-bump"></div>
+    </div>
+    <div class="speedometer" id="blue-speedometer">
+      <div class="speedometer-arrow" id="blue-speedometer-arrow"></div>
+      <div class="speedometer-bump" id="blue-speedometer-bump"></div>
+    </div>
+    </div><!-- end #stage -->
+      <div id="controls">
+      <div id="text">
+        <p>The room separator is in place. Now the dance teams are ready to try their performances again. Explain why this idea will work, or it will not work. What do you think will happen as the dancers bump into the separator?</p>
+      </div>
+      <a href="./15.html#" id="audio" title="Play audio">play audio</a>
+      <div id="record-controls">
+        <a href="./15.html#" id="record" title="Record audio" onclick="return false;">record audio</a>
+        <a href="./15.html#" id="stop" title="Stop recording audio" onclick="return false;">stop recording audio</a>
+        <a href="./15.html#" id="play" title="Play recorded audio" onclick="return false;">play recorded audio</a>
+      </div>
+      <a href="./14.html" id="left" title="Go backward one page">go back</a>
+      </div><!-- /#controls -->
+    </div><!-- /#page-container -->
+    <audio id="audio1" src="../audio/15a.mp3" preload="auto" />
+  <script>
+  var instructions_counter = 0;
+  var instructions = [
+                          'The room separator is in place. Now the dance teams are ready to try their performances again. Explain why this idea will work, or it will not work. What do you think will happen as the dancers bump into the separator?',
+                          'So did the room separator work? What might we do next to make it work better?',
+                          'It was a good idea. The separator kept the Red Hots and the Cool Blues separated so they could each dance their routines, one fast and the other slow. But then there were two problems. First, the dance teams bumped into the separator. Then, the separator bumped into the dancers. After a while, everybody moved at the same speed. The people of the Land of Bump needed a better solution to save the Annual Bump Dance Festival. Explain what you think they should do so both teams can share the dance floor without changing each other\'s routines.'
+                          ];
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://concord-consortium.github.io/iframe-phone/dist/iframe-phone.js"></script>
+  <script src="../js/segments-interface.js"></script>
+  <script>
+    var interactive = new iframePhone.ParentEndpoint($('#interactive-iframe')[0]);
+
+    $(function(){
+      interactive.addListener('modelLoaded', function() {
+        interactive.post('observe', 'temperature-blue');
+        interactive.post('observe', 'temperature-red');
+      });
+    });
+
+    function interactiveListeners() {
+      var blue_rotation, red_rotation;
+        interactive.addListener('propertyValue', function(result) {
+          if (result.name == 'temperature-blue') {
+            // do something with temp value (result.value)
+            blue_rotation = Math.round(result.value) * .036;
+            $('#blue-speedometer-arrow').css({'transform': 'rotate(' + blue_rotation + 'deg)', 'transform-origin': 'right center'});
+          }
+          if (result.name == 'temperature-red') {
+            // do something with temp value (result.value)
+            red_rotation = Math.round(result.value) * .036;
+            $('#red-speedometer-arrow').css({'transform': 'rotate(' + red_rotation + 'deg)', 'transform-origin': 'right center'});
+          }
+        });
+
+    }
+  </script>
+</body>
+</html>
