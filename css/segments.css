@@ -39,7 +39,6 @@ body {
 }
 
 #page-container {
-  margin: 20px auto 0;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -220,7 +219,6 @@ body.blues-only #bump-stage-overlay {
   text-indent: 100%;
   top: 1em;
   white-space: nowrap;
-  width: 4%;
 }
 
 #right.disabled {
