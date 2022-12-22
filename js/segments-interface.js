@@ -49,16 +49,17 @@ function loadNextInstructionSet() {
 // controls animation of audio icon/link
 function audioIconFlasher(action) {
   clearTimeout(audio_icon_flasher);
-  document.getElementById('audio').onclick = playAudio;
   var audio_icon = document.getElementById('audio');
+  audio_icon.onclick = playAudio;
+  audio_icon.style.pointerEvents = "auto";
   if (action == 'stop') {
-	audio_icon.style.opacity = 1;
+    audio_icon.style.opacity = 1;
   } else {
-	if (audio_icon.style.opacity == 1 || audio_icon.style.opacity == '') {
-	  audio_icon.style.opacity = .6;
-	} else {
-	  audio_icon.style.opacity = 1;
-	}
+    if (audio_icon.style.opacity == 1 || audio_icon.style.opacity == '') {
+      audio_icon.style.opacity = .6;
+    } else {
+      audio_icon.style.opacity = 1;
+    }
 	audio_icon_flasher = setTimeout("audioIconFlasher('go')", 400);
   }
 }
@@ -122,11 +123,11 @@ function showModel() {
 
 // loads next audio clip when appropriate and/or enables next page link
 function loadNextAudioClip() {
-  var audio_clips = ['a','b','c'];
   var audio_icon = document.getElementById('audio');
+  audio_icon.style.pointerEvents = "none";
+
   var audio_clip = document.getElementById('audio1');
   audio_icon.style.opacity = .6;
-  document.getElementById('audio').onclick = null;
 
   // get audio clip file name and number and letter from file name
   var audio_number, audio_letter, next_file;
